@@ -3,7 +3,7 @@ const { cnxn, models } = require('./db')
 const app = express()
 
 app.get('/', (req, res, next) => {
-  res.send('hello')
+  models.Page.findAll().then(pages => res.send(pages))
 })
 
 module.exports = app
